@@ -24,7 +24,7 @@ In `Breaking Bye`, users will be able to:
 
 # Wireframe
 
-https://wireframe.cc/u1ifxA
+![wireframe](/wireframe.png)
     
 # Architecture and Technologies
 * Technology 1 - D3
