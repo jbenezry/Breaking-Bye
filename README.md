@@ -32,3 +32,7 @@ In `Breaking Bye`, users will be able to:
 * Wed 10/16/19 - render static character map
 * Thu 10/17/19 - implement playability (movement) and render last words on characters' death(s)
 * Fri 10/18/19 - introduce speed control, direction control and restart features
+
+# Bonus Features
+
+* Visual effects consistent with cause of death (i.e. gunshot, explosion, poisoning, vehicle collision, etc.)
