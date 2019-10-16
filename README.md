@@ -21,6 +21,10 @@ In `Breaking Bye`, users will be able to:
 * restart from the beginning
 * see characters' photos, names, and upon death, their last words, and a red x overlaid on their photos
 * see the connections between characters
+
+# Wireframe
+
+https://wireframe.cc/u1ifxA
     
 # Architecture and Technologies
 * Technology 1 - D3
