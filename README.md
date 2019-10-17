@@ -9,6 +9,8 @@ Users will be able to vary the speed of movement through the series as well as t
 
 Characters' last words will appear on screen at the time of their demise.
 
+This project makes use of the [Breaking Bad API](https://breakingbadapi.com/).
+
 # Motivation for project
 Breaking Bad is an award-winning, record-breaking TV show that aired on AMC from January 20, 2008, to September 29, 2013.  `Breaking Bye` allows fans to relive the culmination of each character's impact on the series.  The last words enhances the user experience by adding a bit of flair when a character's timeline comes to an end.
 
