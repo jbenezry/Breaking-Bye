@@ -29,8 +29,8 @@ In `Breaking Bye`, users will be able to:
 ![wireframe](/wireframe.png)
     
 # Architecture and Technologies
-* Technology 1 - D3
-* Technology 2
+* D3, force-directed graph
+* 
      
 
 # Implementation Timeline
