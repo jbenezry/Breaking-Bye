@@ -1,0 +1,89 @@
+<!-- import './dist/main.css'
+import './dist/main.js' -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>D3 experiment</title>
+    <script src='https://d3js.org/d3.v4.js' charset='utf-8'></script>
+
+    <style>
+        text {
+            color: blue;
+            /* WHY DOES THIS NOT WORK? */
+            font-family: "Open Sans", sans-serif;
+            font-size: 15px;
+
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(73, 72, 72);">
+</body>
+<!-- Location for page elements -->
+<script>
+  var canvas = d3.select('body').append('svg')
+        .attr('width', 500)
+        .attr('height', 500)
+
+    d3.json("https://breakingbadapi.com/api/deaths", function (json) {
+        let data = [
+            {
+                "death_id": 40,
+                "death": "Bodyguards of Gus Fring",
+                "cause": "Multiple gunshots.",
+                "responsible": "Walter White",
+                "last_words": "What, you got a problem with stairs?",
+                "season": 4,
+                "episode": 13,
+                "number_of_deaths": 2
+            },
+            {
+                "death_id": 28,
+                "death": "Cartel Assassins",
+                "cause": "Shot in close range.",
+                "responsible": "Mike Ehrmantraut",
+                "last_words": "Unknown",
+                "season": 4,
+                "episode": 4,
+                "number_of_deaths": 2
+            },
+            {
+                "death_id": 23,
+                "death": "Rival Dealers",
+                "cause": "Ran over with a van, then shot in the head.",
+                "responsible": "Walter White",
+                "last_words": "Unknown",
+                "season": 3,
+                "episode": 12,
+                "number_of_deaths": 2
+            }
+        ]
+        // var obj = json.data;
+        // for (var key in obj) {
+        //     data.push(obj[key])
+        // }
+
+        var scale = d3.scaleLinear()
+            .domain([0, d3.max(data, function (d) {
+                return d.death
+            })])
+            .range([0, 500]);
+
+        canvas.selectAll('rect')
+            .data(data)
+            .enter()
+            .append('rect')
+            .attr('width', function (d) {
+                return scale(d.death)
+            })
+            .attr('height', 6)
+            .attr('y', function (d, i) {
+                return i * 7
+            })
+            .attr('fill', 'blue')
+    });
+</script>
+
+</html>
