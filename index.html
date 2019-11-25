@@ -61,10 +61,45 @@ import './dist/main.js' -->
     let h = window.innerHeight; //h was previously set to 250
 
     //create an SVG element
-    let svg = d3.select('body')
-        .append('svg')
+    let svg = d3.select('svg')
+        // .append('svg')
         .attr('width', w)
         .attr('height', h)
+
+    //create a forceSimulation instance            
+    const simulation = d3.forceSimulation()
+        .force('charge', d3.forceManyBody().strength(-20))  //global force that affects every node
+        .force('center', d3.forceCenter(width / 2, height / 2))  //translates all nodes to visually move them to center
+
+    getNodeColor = (node) => {
+        return node.level === 1 ? 'red' : 'gray'    //this ternary visually differentiates first-level nodes from all others via color-coding
+        }
+
+    const nodeElements = svg.append('g')
+        .selectAll('circle')
+        .data(nodes)
+        .enter().append('circle')
+        .attr('r', 10)
+        .attr('fill', getNodeColor)
+    const textElements = svg.append('g')
+        .selectAll('text')
+        .data(nodes)
+        .enter().append('text')
+        .text(node => node.label)
+        .attr('font-size', 15)
+        .attr('dx', 15)
+        .attr('dy', 4)
+        
+
+    simulation.nodes(nodes).on(‘tick’, () => {
+        nodeElements
+            .attr(“cx”, node => node.x)
+            .attr(“cy”, node => node.y)
+        textElements
+            .attr(“x”, node => node.x)
+            .attr(“y”, node => node.y)
+        })
+    /*            
     //select and generate rectangle elements
     svg.selectAll('rect')
         .data(deathsData)
@@ -108,6 +143,7 @@ import './dist/main.js' -->
         .text("No. of Deaths")
         .attr("transform", "translate(20, 155) rotate(-90)");
             // .attr("stroke-width", 3)
+    */
 </script>
 
 </html>
