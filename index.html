@@ -57,8 +57,8 @@ import './dist/main.js' -->
         ]
 
     //variables for SVG dimensions
-    let w = 200;
-    let h = 250;
+    let w = window.innerWidth; //w was previously set to 200
+    let h = window.innerHeight; //h was previously set to 250
 
     //create an SVG element
     let svg = d3.select('body')
